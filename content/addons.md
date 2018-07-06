@@ -28,25 +28,68 @@ To be safe, it's a good idea to restart the local server after installing new de
 
 The `install` command creates an entry in the app's `package.json`, and downloads the addon and its dependencies into `node_modules`. Some addons also create new files or make modifications when they are installed.
 
-### Choosing an addon
+### Choosing an existing addon
 
-The [top 100 list](https://www.emberobserver.com/lists/top-addons) is an important first stop for new developers. Many Ember users have a personal set list of addons that they include in all their apps, and this is the best way to find out what those addons might be. Some addons are totally unique to Ember, while others exist to make it easier to use features of regular npm packages within an app.
+In this section you'll find a few examples of popular community-maintained addons in no particular order. Hopefully it will give you some impression about what is an addon. 
 
-For example, these community-authored addons bring in familiar functionality from regular npm packages:
+Needless to say, the list is far from full and the descriptions doesn't cover features fully. Please, feel free to visit [EmberObserver](https://emberobserver.com/) to explore addons landscape more. The [top 100 list](https://www.emberobserver.com/lists/top-addons) is an important first stop for new developers. Many Ember users have a personal set list of addons that they include in all their apps, and this is the best way to find out what those addons might be. Some addons are totally unique to Ember, while others exist to make it easier to use features of regular npm packages within an app.
 
-- Stylesheet tooling like [ember-cli-sass](https://www.emberobserver.com/addons/ember-cli-sass), which provides [SASS](https://sass-lang.com/) as an alternative to plain CSS
-- JavaScript utilities like [ember-moment](https://www.emberobserver.com/addons/ember-moment), which offers some Ember conveniences to the base [moment library](https://www.npmjs.com/package/moment)
-- Full UI frameworks and design kits like [ember-bootstrap](https://www.emberobserver.com/addons/ember-bootstrap), [semantic-ui-ember](https://www.emberobserver.com/addons/semantic-ui-ember), and [ember-paper](https://www.emberobserver.com/addons/ember-paper). These offer easier, more reliable, more performant functionality than just using the npm packages directly.
+### Working with Backend
 
-Here are just a few examples of popular community-maintained addons unique to Ember, in no particular order:
+##### [ember-data] (https://github.com/emberjs/data)
+A data persistence library. Provides a  DSL to separate logic from implementation. To get data you will write something like 
+```
+this.store.query('artist', {filter: {name: 'Adele'},include: 'albums'})
+```
+Also the library supports you with abstraction classes which allow painless refactoring in case of massive changes on a backend side (like changes in URIs, structure of payload or protocol)
 
-- A wealth of UI component libraries, like [ember-power-select]() and [ember-basic-dropdown](https://www.emberobserver.com/addons/ember-basic-dropdown)
-- Tools to automate deployment, like [ember-cli-deploy](https://www.emberobserver.com/categories/deployment) and its own ecosystem of plugins
-- Testing tools like [ember-test-selectors](https://www.emberobserver.com/addons/ember-test-selectors), to make DOM assertions in testing easier and clearer, and [ember-a11y-testing](https://www.emberobserver.com/addons/ember-a11y-testing) to check for accessibility
-- Authentication libraries and plugins, like [torii](https://www.emberobserver.com/addons/torii) and [ember-simple-auth](https://www.emberobserver.com/addons/ember-simple-auth), and [ember-oauth2](https://www.emberobserver.com/addons/ember-oauth2)
-- Async and state management tools like [ember-concurrency](https://www.emberobserver.com/addons/ember-concurrency) and [ember-lifeline](https://www.emberobserver.com/addons/ember-lifeline). Don't let a user's impatient clicks kick off 100 API requests.
-- [liquid-fire](https://www.emberobserver.com/addons/liquid-fire), for animating things like route transitions to provide a smooth, native-app-like experience.
-- and so many more!
+##### [ember-apollo-client](https://github.com/bgentry/ember-apollo-client)
+An Ember addon for Apollo Client. It allows you to use GraphQL in your Ember.js application same way like in React.js. 
+```
+query human($id: String!) {
+  human(id: $id) {
+    name
+  }
+}
+```
+
+
+### Components and UI
+[liquid-fire](https://github.com/ember-animation/liquid-fire)
+Animations & transitions for ambitious Ember applications. It allows to animate transitions between your routes, changes of values and component states. Backed by [velocity.js](http://velocityjs.org/). One of the oldest addons (was created before "ember-..." naming conventions).
+
+##### [ember-bootstrap](https://github.com/kaliber5/ember-bootstrap)
+Ember-cli addon for using Bootstrap as native Ember components. With this addon, you will get a set of Ember components, like Carousel, Form, Dropdown etc. which will produce markup needed for Bootstrap styling.
+The addon reuses CSS from Bootstrap. Also, you can use Bootstrap Sass and Less inside your application if you need.  
+
+##### [ember-paper](https://github.com/miguelcobain/ember-paper) 
+The Ember approach to Material Design. You can find most of components implemented. Besides it provides useful tools for organizing layouts, typography, coloring and theming.
+
+##### [ember-power-select](https://www.emberobserver.com/addons/ember-power-select)
+Rich component for selects
+##### ember-power-calendar 
+Rich component for calendar
+
+### Additional features
+##### [ember-cli-sass](https://www.emberobserver.com/addons/ember-cli-sass)
+Stylesheet tooling which provides [SASS](https://sass-lang.com/) as an alternative to plain CSS
+##### [ember-concurrency](https://www.emberobserver.com/addons/ember-concurrency)
+Async and state management tool. Don't let a user's impatient clicks kick off 100 API requests. Another alternative to it is [ember-lifeline](https://www.emberobserver.com/addons/ember-lifeline)
+##### [ember-simple-auth](https://github.com/simplabs/ember-simple-auth)
+
+### Development tools
+##### [ember-test-selectors](https://www.emberobserver.com/addons/ember-test-selectors)
+Testing tools to make DOM assertions in testing easier and clearer
+##### [ember-cli-mirage](https://www.emberobserver.com/addons/ember-cli-mirage)
+Brings in server mocks for your testing and development environments.
+
+##### ember-cli-update
+Helps to update existing applications when a new version of Ember.js is released
+##### [ember-a11y-testing](https://www.emberobserver.com/addons/ember-a11y-testing)
+This brings accessabilyty check to your app
+
+##### [ember-cli-deploy](https://www.emberobserver.com/categories/deployment)
+Tools to automate deployment and its own ecosystem of plugins
 
 Open Source projects like these addons rely on community members helping out. Some addons are sponsored by companies, but many are maintained on 100% volunteer time. If something doesn't work the way you expect, could be better documented, has a bug, or could be added as a new feature, please speak up and pitch in!
 
